@@ -4,15 +4,14 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"test": "jasmine"
-	},
-	"directories": {
-		"test": "jasmine"
+		"test": "./node_modules/mocha/bin/mocha"
 	},
 	"devDependencies": {
 		"chai": "^4.2.0",
+		"jasmine": "^3.3.1",
 		"jest": "^23.6.0",
-		"jasmine": "^3.3.1"
+		"mocha": "^6.0.2",
+		"sequelize": "^5.21.7"
 	},
 	"dependencies": {
 		"should": "^13.2.3"
