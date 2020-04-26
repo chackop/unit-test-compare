@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha"
+		"test": "node_modules/.bin/ava tests/**/*.test.js --verbose"
 	},
 	"devDependencies": {
 		"chai": "^4.2.0",
@@ -14,6 +14,7 @@
 		"sequelize": "^5.21.7"
 	},
 	"dependencies": {
-		"should": "^13.2.3"
+		"should": "^13.2.3",
+		"ava": "^1.3.1"
 	}
 }

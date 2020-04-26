@@ -1,17 +1,30 @@
-const { sum } = require('../math');
+import test from 'ava';
+const fs = require('fs');
 
-describe('Sum Feature', () => {
-test('should calculate the sum of two numbers', () => {
-	const results = sum(2,2);
-	expect(results).toBe(4);
-	expect(results).toBeGreaterThan(3)
-	expect(results).toBeGreaterThanOrEqual(3)
-	expect(results).toBeLessThan(5)
-	expect(results).toBeLessThanOrEqual(5);
-	expect(results).toEqual(4)
+//Running tests serially
+test('foo', t => {
+  t.pass();
 });
-test('should calculate the sum of two floating point numbers', () => {
-	const results = sum(0.1 , 0.3);
-	expect(results).toBeCloseTo(0.4);
-})
+
+test('bar', async t => {
+  const bar = Promise.resolve('bar');
+  t.is(await bar, 'bar');
+});
+
+const getValue = () => {
+  return new Promise(resolve => {
+    return resolve(true);
+  });
+};
+test('promises the truth', async t => {
+  const value = await getValue();
+  t.true(value);
+});
+
+test.cb('data.txt can be read', t => {
+  // `t.end` automatically checks for error as first argument
+  fs.readFile('data.txt', t.end);
+});
+test.failing('demonstrate some bug', t => {
+  t.fail(); // Test will count as passed
 });
