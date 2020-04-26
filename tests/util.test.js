@@ -1,4 +1,4 @@
-const { greet, isEven, isOdd } = require('../util');
+const { greet, isEven, isOdd, getCustomer, getPersons } = require('../util');
 
 describe('Greet Feature', () => {
 	it('should get the greet message', () => {
@@ -31,5 +31,26 @@ describe('Odd', () => {
 		const results = isOdd(4);
 		expect(results).not.toBeTruthy();
 		expect(results).toBeFalsy();
+	});
+});
+describe('Customer', () => {
+	it('should find customer by id', () => {
+		const results = getCustomer(1);
+		expect(results).toBeDefined();
+		expect(results).not.toBeUndefined();
+
+		expect(results).toEqual({ id: 1, name: 'Jane' });
+		expect(results).toHaveProperty('id', 1);
+
+		expect(results).toEqual(expect.objectContaining({ id: 1 }));
+	});
+});
+describe('Persons', () => {
+	it('should fetch all the persons', () => {
+		const results = getPersons();
+		expect(results).toHaveLength(4);
+		expect(results).toContain('Doe');
+
+		expect(results).toEqual(expect.arrayContaining(['Jane', 'Doe']));
 	});
 });
