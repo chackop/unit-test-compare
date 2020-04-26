@@ -1,6 +1,14 @@
-function greet(name){
-    return `Hello ${name}`;
+function greet(name) {
+	return `Hello ${name}`;
 }
-module.exports  ={
-    greet
+function isEven(n) {
+	return n % 2 == 0;
 }
+function isOdd(n) {
+	return Math.abs(n % 2) == 1;
+}
+module.exports = {
+	greet,
+	isEven,
+	isOdd
+};
